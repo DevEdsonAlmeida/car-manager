@@ -13,14 +13,14 @@ const carRoutes = require('./routes/carRoutes');
 app.use('/owners', ownerRoutes);
 app.use('/cars', carRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, async () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`O servidor está rodando na porta ${PORT}`);
   try {
     await sequelize.authenticate();
-    console.log('Connection to the database has been established successfully.');
+    console.log('A conexão com o banco de dados foi estabelecida com sucesso.');
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    console.error('Não foi possível conectar ao banco de dados:', error);
   }
 });
